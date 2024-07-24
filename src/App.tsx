@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Questionaire from "./Component/Questionaire";
 // import Header from "./Component/Header";
@@ -69,19 +69,23 @@ function App() {
     <div className="container">
       <h2>Score: {score}</h2>
       <h2>
-        {currentIndex + 1} out of {questions.length} Questions
+        {currentIndex} out of {questions.length} Questions
       </h2>
       <button onClick={restartGame} className="next-question">
         Restart Game
       </button>
       {currentIndex >= questions.length ? (
-        <h1>Game Ended, Your Score is {(score / questions.length) * 100}%</h1>
+        <h1>
+          You got {(score / questions.length) * 100}% right
+          <br /> <br />
+          Game Ended, Your Score is {score} / {questions.length}!
+        </h1>
       ) : (
         <Questionaire
           handleAnswer={handleAnswer}
           showAnswers={showAnswers}
           handleNextQuestion={handleNextQuestion}
-          handlePreviousQuestion={handlePreviousQuestion}
+          // handlePreviousQuestion={handlePreviousQuestion}
           data={questions[currentIndex]}
         />
       )}

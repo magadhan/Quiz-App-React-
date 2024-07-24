@@ -1,10 +1,10 @@
-import React from "react";
+// import React from "react";
 
 function Questionaire({
   handleAnswer,
   showAnswers,
   handleNextQuestion,
-  handlePreviousQuestion,
+  // handlePreviousQuestion,
   data: { question, correct_answer, answers },
 }) {
   return (
